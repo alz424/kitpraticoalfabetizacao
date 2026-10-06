@@ -5,7 +5,7 @@ export const defaultOffer = {
   pages: '[QUANTIDADE DE PÁGINAS]',
   essentialAnchor: '[ÂNCORA]',
   essentialPrice: '19,99',
-  essentialLink: '',
+  essentialLink: 'https://pay.cakto.com.br/37ifcan_1179687',
 };
 export type Offer = typeof defaultOffer;
 
