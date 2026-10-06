@@ -1,9 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { useEffect, useState, type ReactNode } from 'react';
-import { ArrowRight, BookOpen, Check, CheckCheck, Download, FileText, Gift, GraduationCap, Heart, Layers, LockKeyhole, Pencil, Plus, Printer, Puzzle, RefreshCw, Search, Settings2, ShieldCheck, Sparkles, SpellCheck, Users, Volume2 } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { ArrowRight, BookOpen, Check, Download, FileText, Gift, GraduationCap, Heart, Layers, LockKeyhole, Pencil, Plus, Printer, Puzzle, RefreshCw, Search, ShieldCheck, Sparkles, SpellCheck, Users, Volume2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { defaultOffer, GUARANTEE_DAYS, validCheckout, type Offer } from '@/features/sales/offer';
+import { defaultOffer, GUARANTEE_DAYS } from '@/features/sales/offer';
 import heroAsset from '@/assets/literacy-kit-mockup.jpg.asset.json';
 import contentAsset from '@/assets/literacy-kit-content.jpg.asset.json';
 import readingAsset from '@/assets/caderno-de-leitura.jpg.asset.json';
@@ -56,12 +55,6 @@ const faqs = [
   ['E se eu não gostar?', `Você terá ${GUARANTEE_DAYS} dias de garantia para solicitar o reembolso, conforme as condições da compra.`],
 ];
 const mainItems = ['Atividades de letras', 'Atividades de consciência fonológica', 'Atividades de sílabas', 'Formação de palavras', 'Atividades de leitura', 'Atividades de escrita', 'Atividades ilustradas', 'Exercícios de associação', 'Materiais organizados por etapa', 'Arquivos digitais prontos para imprimir'];
-const editorLabels: Record<Exclude<keyof Offer, 'bonus1' | 'bonus2' | 'bonus3' | 'bonus4'>, string> = {
-  activities: 'Quantidade real de atividades', pages: 'Quantidade real de páginas',
-  essentialAnchor: 'Preço anterior', essentialPrice: 'Preço do Kit Essencial',
-  essentialLink: 'Link de pagamento · Kit Essencial',
-};
-
 function Logo() {
   return <a href="#inicio" className="logo" aria-label="Kit Prático de Alfabetização, início"><span className="logo-icon"><BookOpen /></span><span><span className="logo-name">Kit de Alfabetização<span className="text-primary">.</span></span><span className="logo-caption">Aprender, uma etapa de cada vez.</span></span></a>;
 }
