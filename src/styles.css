@@ -52,6 +52,8 @@
   --hero-surface: oklch(.975 .013 153);
   --shadow-soft: 0 12px 40px oklch(.3 .04 165 / .07);
   --shadow-cta: 0 5px 12px oklch(.4 .12 164 / .14);
+  --gallery-overlay: oklch(.17 .02 165 / .92);
+  --gallery-shadow: 0 16px 35px oklch(.28 .036 165 / .12);
 }
 @layer base {
   * { border-color: var(--border); }
@@ -211,6 +213,47 @@
 .editor-fields label { display:flex; flex-direction:column; gap:6px; font-size:12px; font-weight:600; }
 .editor-fields input { width:100%; min-width:0; border:1px solid var(--border); border-radius:4px; background:var(--background); color:var(--foreground); padding:10px; font-weight:400; }
 .editor-wide { grid-column:1/-1; }
+.activity-carousel { margin:0 auto; max-width:1080px; }
+.activity-viewport { overflow:hidden; touch-action:pan-y pinch-zoom; cursor:grab; padding:28px 0 34px; }
+.activity-viewport:active { cursor:grabbing; }
+.activity-track { display:flex; }
+.activity-slide { flex:0 0 46%; min-width:0; padding:0 22px; display:flex; align-items:center; justify-content:center; }
+.activity-page-button { display:block; width:100%; height:auto; padding:0; border-radius:8px; background:var(--card); box-shadow:var(--gallery-shadow); overflow:hidden; transform:scale(.86); transition:transform .4s ease,opacity .4s ease; opacity:.72; }
+.activity-slide[data-selected=true] .activity-page-button { transform:scale(1); opacity:1; }
+.activity-page-button:hover { background:var(--card); }
+.activity-page-button img { display:block; width:100%; height:auto; aspect-ratio:600/848; object-fit:contain; user-select:none; }
+.activity-navigation { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:20px; max-width:420px; margin:0 auto; }
+.activity-arrow { width:44px; height:44px; flex-shrink:0; color:var(--primary); border-radius:50%; background:var(--background); }
+.activity-current { min-width:0; text-align:center; display:flex; flex-direction:column; gap:6px; }
+.activity-current strong { font-size:15px; font-family:var(--font-display); }
+.activity-current span { font-size:11px; color:var(--muted-foreground); }
+.activity-dots { display:flex; flex-wrap:wrap; justify-content:center; gap:0; margin:15px auto 0; }
+.activity-dot { width:22px; height:30px; padding:0; }
+.activity-dot span { display:block; width:6px; height:6px; border-radius:50%; background:var(--border); transition:transform .2s,background .2s; }
+.activity-dot[data-active=true] span { background:var(--primary); transform:scale(1.4); }
+.activity-disclaimer { margin:11px 0 0; text-align:center; color:var(--muted-foreground); font-size:11px; }
+.activity-kit-cta { margin:26px 0 44px; }
+.activity-lightbox-overlay { background:var(--gallery-overlay); }
+.activity-lightbox { position:fixed; z-index:51; left:50%; top:50%; transform:translate(-50%,-50%); width:min(1000px,calc(100% - 40px)); max-height:94dvh; display:flex; flex-direction:column; gap:18px; outline:none; color:var(--primary-foreground); }
+.activity-lightbox-header { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:20px; align-items:center; }
+.activity-lightbox-header > div { min-width:0; }
+.activity-lightbox-header h2 { font-size:18px; line-height:1.4; }
+.activity-lightbox-header p { color:var(--primary-foreground); opacity:.72; font-size:11px; margin-top:5px; }
+.activity-lightbox-body { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:20px; min-height:0; }
+.activity-lightbox-body img { width:auto; max-width:100%; height:auto; max-height:80dvh; aspect-ratio:600/848; object-fit:contain; justify-self:center; border-radius:6px; background:var(--card); }
+@media(max-width:600px) {
+  .activity-slide { flex-basis:90%; padding:0 9px; }
+  .activity-viewport { padding:12px 0 25px; }
+  .activity-navigation { gap:12px; }
+  .activity-current strong { font-size:13px; }
+  .activity-dot { width:21px; }
+  .activity-disclaimer { font-size:10px; line-height:1.6; }
+  .activity-lightbox { width:calc(100% - 24px); gap:12px; }
+  .activity-lightbox-header h2 { font-size:15px; }
+  .activity-lightbox-body { grid-template-columns:32px minmax(0,1fr) 32px; gap:4px; }
+  .activity-lightbox-body > button { width:32px; }
+  .activity-lightbox-body img { max-height:76dvh; }
+}
 @media(min-width:1450px) { .hero-image { width:90%; } .hero { min-height:630px; } }
 @media(max-width:900px) {
   .header-nav { gap:18px; } .header-nav > a:not(.sales-button) { display:none; }
