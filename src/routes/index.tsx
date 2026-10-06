@@ -72,37 +72,9 @@ function TrustLine() {
 }
 
 function SalesPage() {
-  const [offer, setOffer] = useState<Offer>(defaultOffer);
-  const [editorAvailable, setEditorAvailable] = useState(false);
-  const [editorOpen, setEditorOpen] = useState(false);
-  const [pendingKit, setPendingKit] = useState<string | null>(null);
-  useEffect(() => {
-    setEditorAvailable(location.hostname === 'localhost' || location.hostname.startsWith('id-preview--'));
-    try {
-      const saved = sessionStorage.getItem('literacy-offer-draft');
-      if (saved) {
-        const parsed: unknown = JSON.parse(saved);
-        if (parsed && typeof parsed === 'object') {
-          const next = { ...defaultOffer };
-          for (const key of Object.keys(defaultOffer) as (keyof Offer)[]) {
-            const value = (parsed as Record<string, unknown>)[key];
-            if (typeof value === 'string' && (key !== 'essentialLink' || validCheckout(value))) next[key] = value;
-          }
-          setOffer(next);
-        }
-      }
-    } catch { /* Preview drafts are optional. */ }
-  }, []);
-  function updateOffer(key: keyof Offer, value: string) {
-    setOffer(current => {
-      const next = { ...current, [key]: value };
-      try { sessionStorage.setItem('literacy-offer-draft', JSON.stringify(next)); } catch { /* Keep the edit in memory. */ }
-      return next;
-    });
-  }
+  const offer = defaultOffer;
   function buy() {
-    if (validCheckout(offer.essentialLink)) { window.location.assign(offer.essentialLink); return; }
-    setPendingKit('Kit Essencial');
+    window.location.assign(offer.essentialLink);
   }
   return <>
     <div id="inicio" className="top-note">Um próximo passo no aprendizado começa com a atividade certa.</div>
