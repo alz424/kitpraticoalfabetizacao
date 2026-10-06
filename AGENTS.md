@@ -13,3 +13,4 @@
 - Keep the supplied long-form sales narrative on the index route; it is one continuous offer, not separate business pages.
 - Keep editable offer values in a typed frontend configuration; preview edits are browser-local drafts, not hosted administration.
 - Keep checkout validation and guarantee duration in the offer module so rules are tested independently of presentation.
+- Keep carousel image sources and captions in a separate activity manifest; Embla handles dragging and snapping, while Radix Dialog provides accessible enlarged viewing.
