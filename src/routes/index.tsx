@@ -58,9 +58,8 @@ const faqs = [
 const mainItems = ['Atividades de letras', 'Atividades de consciência fonológica', 'Atividades de sílabas', 'Formação de palavras', 'Atividades de leitura', 'Atividades de escrita', 'Atividades ilustradas', 'Exercícios de associação', 'Materiais organizados por etapa', 'Arquivos digitais prontos para imprimir'];
 const editorLabels: Record<Exclude<keyof Offer, 'bonus1' | 'bonus2' | 'bonus3' | 'bonus4'>, string> = {
   activities: 'Quantidade real de atividades', pages: 'Quantidade real de páginas',
-  essentialAnchor: 'Preço anterior · Kit Essencial', essentialPrice: 'Preço · Kit Essencial',
-  completeAnchor: 'Preço anterior · Kit Premium', completePrice: 'Preço · Kit Premium',
-  essentialLink: 'Link de pagamento · Kit Essencial', completeLink: 'Link de pagamento · Kit Premium',
+  essentialAnchor: 'Preço anterior', essentialPrice: 'Preço do Kit Essencial',
+  essentialLink: 'Link de pagamento · Kit Essencial',
 };
 
 function Logo() {
@@ -108,10 +107,9 @@ function SalesPage() {
       return next;
     });
   }
-  function buy(complete: boolean) {
-    const link = complete ? offer.completeLink : offer.essentialLink;
-    if (validCheckout(link)) { window.location.assign(link); return; }
-    setPendingKit(complete ? 'Kit Premium' : 'Kit Essencial');
+  function buy() {
+    if (validCheckout(offer.essentialLink)) { window.location.assign(offer.essentialLink); return; }
+    setPendingKit('Kit Essencial');
   }
   return <>
     <div id="inicio" className="top-note">Um próximo passo no aprendizado começa com a atividade certa.</div>
