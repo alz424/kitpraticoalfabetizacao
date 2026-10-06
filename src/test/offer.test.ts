@@ -5,9 +5,9 @@ describe('Sales offer', () => {
   it('provides the specified seven-day guarantee', () => {
     expect(GUARANTEE_DAYS).toBe(7);
   });
-  it('keeps unspecified prices as placeholders', () => {
-    expect(defaultOffer.essentialPrice).toBe('[PREÇO]');
-    expect(defaultOffer.completePrice).toBe('[PREÇO PREMIUM]');
+  it('uses the kit prices specified by the client', () => {
+    expect(defaultOffer.essentialPrice).toBe('19,99');
+    expect(defaultOffer.completePrice).toBe('29,99');
   });
   it('does not allow missing or unsafe payment destinations', () => {
     expect(validCheckout('')).toBe(false);
