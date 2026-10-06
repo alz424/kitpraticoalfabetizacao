@@ -161,6 +161,7 @@
 .bonus-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
 .bonus { border:1px solid var(--border); background:var(--card); border-radius:8px; overflow:hidden; }
 .bonus-cover { height:165px; display:grid; place-items:center; background:var(--secondary); }
+.bonus-photo { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; }
 .bonus:nth-child(2) .bonus-cover { background:var(--gold-soft); }
 .bonus:nth-child(3) .bonus-cover { background:var(--coral-soft); }
 .bonus:nth-child(4) .bonus-cover { background:var(--blue-soft); }
