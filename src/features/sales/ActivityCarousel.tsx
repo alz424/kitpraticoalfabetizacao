@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ArrowLeft, ArrowRight, X } from 'lucide-react';
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogOverlay, DialogPortal, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogClose, DialogDescription, DialogOverlay, DialogPortal, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { activityPages } from './activity-pages';
 
@@ -42,7 +42,7 @@ export function ActivityCarousel() {
       <div className="activity-viewport" ref={viewportRef}>
         <div className="activity-track">
           {activityPages.map((activity, index) => <div className="activity-slide" data-selected={index === selected} key={activity.id} role="group" aria-roledescription="slide" aria-label={`${index + 1} de ${activityPages.length}: ${activity.title}`}>
-            <Button variant="ghost" className="activity-page-button" aria-label={`Ampliar atividade: ${activity.title}`} tabIndex={index === selected ? 0 : -1} onClick={() => { if (!api || api.clickAllowed()) setExpanded(index); }}>
+            <Button variant="ghost" className="activity-page-button" aria-label={`Ampliar atividade: ${activity.title}`} tabIndex={index === selected ? 0 : -1} onClick={() => setExpanded(index)}>
               <img src={activity.src} width={600} height={848} alt={`${activity.isPlaceholder ? 'Modelo demonstrativo' : 'Página do kit'}: ${activity.title}`} loading="lazy" decoding="async" draggable={false} />
             </Button>
           </div>)}
