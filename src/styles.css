@@ -188,9 +188,11 @@
 .search-example svg { width:14px; height:14px; }
 .routine strong { font-family:var(--font-display); color:var(--primary); font-size:20px; }
 .pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:26px; max-width:850px; margin-inline:auto; align-items:stretch; }
-.price-card { border:1px solid var(--border); border-radius:8px; background:var(--card); padding:34px; position:relative; text-align:center; }
-.price-card-complete { border:2px solid var(--primary); padding:33px; box-shadow:var(--shadow-soft); }
-.complete-label { background:var(--primary); color:var(--primary-foreground); border-radius:6px 6px 0 0; margin:-34px -34px 26px; padding:11px 16px; text-align:center; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; gap:6px; }
+.price-card { border:2px solid color-mix(in oklch, var(--primary) 22%, white); border-radius:28px; background:var(--card); padding:34px; position:relative; text-align:center; box-shadow:var(--shadow-soft); transition:transform .25s, box-shadow .25s; }
+.price-card:hover { transform:translateY(-4px); }
+.price-card-complete { border:2.5px solid transparent; background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(135deg, var(--gold), var(--coral) 50%, var(--primary)) border-box; padding:33px; box-shadow:0 16px 44px oklch(.45 .15 244 / .14); }
+.price-card-complete:hover { box-shadow:0 20px 52px oklch(.45 .15 244 / .2); }
+.complete-label { background:var(--primary); color:var(--primary-foreground); border-radius:25px 25px 0 0; margin:-33px -33px 26px; padding:11px 16px; text-align:center; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; gap:6px; }
 .complete-label svg { width:14px; height:14px; }
 .price-card h3 { font-size:23px; font-weight:800; margin:0 0 6px; }
 .price-subtitle { color:var(--muted-foreground); font-size:11px; font-weight:600; margin:0 0 29px; }
