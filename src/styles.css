@@ -228,7 +228,7 @@
 .final-offer .eyebrow { color:var(--gold); justify-content:center; }
 .final-offer h2 { font-size:33px; line-height:1.35; font-weight:800; margin:0 auto 20px; max-width:650px; }
 .final-offer p { max-width:650px; margin:0 auto 24px; font-size:15px; line-height:1.8; opacity:.85; }
-.final-offer .sales-button { background:var(--gold); color:var(--foreground); border-color:var(--gold); }
+.final-offer .sales-button { background:var(--buy); color:var(--buy-foreground); border-color:var(--buy-border); box-shadow:0 5px 0 var(--buy-border), 0 14px 28px oklch(.2 .05 245 / .35); }
 .final-offer .trust-line { justify-content:center; color:var(--primary-foreground); opacity:.85; }
 .final-offer .small-label { color:var(--primary-foreground); font-size:10px; }
 .footer { padding:28px 0; background:var(--background); }
