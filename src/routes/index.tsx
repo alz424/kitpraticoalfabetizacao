@@ -93,7 +93,7 @@ function SalesPage() {
           const next = { ...defaultOffer };
           for (const key of Object.keys(defaultOffer) as (keyof Offer)[]) {
             const value = (parsed as Record<string, unknown>)[key];
-            if (typeof value === 'string') next[key] = value;
+            if (typeof value === 'string' && (key !== 'essentialLink' || validCheckout(value))) next[key] = value;
           }
           setOffer(next);
         }
