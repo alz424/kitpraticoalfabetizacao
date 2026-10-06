@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import type { ReactNode } from 'react';
-import { ArrowRight, BookOpen, Check, Download, FileText, Gift, GraduationCap, Heart, Layers, LockKeyhole, Pencil, Plus, Printer, Puzzle, RefreshCw, Search, ShieldCheck, Sparkles, SpellCheck, Users, Volume2 } from 'lucide-react';
+import { ArrowRight, BookOpen, Check, Download, Gift, GraduationCap, Heart, Layers, LockKeyhole, Pencil, Plus, Printer, Puzzle, RefreshCw, Search, ShieldCheck, Sparkles, SpellCheck, Users, Volume2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { defaultOffer, GUARANTEE_DAYS } from '@/features/sales/offer';
 import heroAsset from '@/assets/literacy-kit-mockup.jpg.asset.json';
