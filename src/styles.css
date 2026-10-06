@@ -70,8 +70,8 @@
 .logo-name { display:block; font-family:var(--font-display); font-size:18px; font-weight:800; }
 .logo-caption { display:block; color:var(--muted-foreground); font-size:10px; }
 .header-nav { display:flex; align-items:center; gap:28px; }
-.header-nav > a { text-decoration:none; font-size:13px; color:var(--muted-foreground); }
-.header-nav > a:hover { color:var(--primary); }
+.header-nav > a:not(.sales-button) { text-decoration:none; font-size:13px; color:var(--muted-foreground); }
+.header-nav > a:not(.sales-button):hover { color:var(--primary); }
 .sales-button { background:var(--primary); color:var(--primary-foreground); box-shadow:var(--shadow-cta); border:1px solid var(--primary); min-height:52px; padding:14px 24px; font-size:14px; font-weight:700; border-radius:6px; transition:transform .2s,background .2s; }
 .sales-button:hover { background:color-mix(in oklch,var(--primary) 90%,var(--foreground)); transform:translateY(-2px); }
 .sales-button svg { width:18px; height:18px; }
@@ -213,7 +213,7 @@
 .editor-wide { grid-column:1/-1; }
 @media(min-width:1450px) { .hero-image { width:90%; } .hero { min-height:630px; } }
 @media(max-width:900px) {
-  .header-nav { gap:18px; } .header-nav > a { display:none; }
+  .header-nav { gap:18px; } .header-nav > a:not(.sales-button) { display:none; }
   .hero h1 { font-size:42px; max-width:450px; } .hero-copy { max-width:400px; }
   .hero::before { background:linear-gradient(90deg,var(--hero-surface) 0%,var(--hero-surface) 32%,transparent 85%); }
   .skills-grid { gap:14px; } .skill { padding:22px; }
@@ -226,12 +226,12 @@
   .top-note { font-size:10px; padding:8px 10px; }
   .header-inner { height:72px; gap:12px; } .logo-name { font-size:14px; } .logo-caption { font-size:9px; } .logo-icon { width:33px; height:36px; } .logo-icon svg { width:21px; }
   .header-cta { min-height:37px; font-size:10px; padding:8px 11px; gap:5px; } .header-cta svg { width:13px; }
-  .hero { min-height:790px; }
-  .hero-inner { padding-top:34px; padding-bottom:330px; }
+  .hero { min-height:670px; }
+  .hero-inner { padding-top:34px; padding-bottom:220px; }
   .hero h1 { font-size:35px; line-height:1.2; max-width:360px; margin-bottom:16px; }
   .hero-copy { font-size:14px; line-height:1.75; margin-bottom:18px; max-width:380px; }
   .hero .eyebrow { font-size:10px; margin-bottom:16px; }
-  .hero-image { top:auto; bottom:0; width:100%; height:340px; object-position: right bottom; object-fit:cover; }
+  .hero-image { top:auto; bottom:0; width:100%; height:230px; object-position: right bottom; object-fit:cover; }
   .hero::before { background:linear-gradient(180deg,var(--hero-surface) 0%,var(--hero-surface) 56%,transparent 80%); }
   .hero-points { gap:8px 12px; font-size:10px; margin-bottom:21px; }
   .hero .sales-button { width:100%; }
