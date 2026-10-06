@@ -1,9 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { useEffect, useState, type ReactNode } from 'react';
-import { ArrowRight, BookOpen, Check, CheckCheck, Download, FileText, Gift, GraduationCap, Heart, Layers, LockKeyhole, Pencil, Plus, Printer, Puzzle, RefreshCw, Search, Settings2, ShieldCheck, Sparkles, SpellCheck, Users, Volume2 } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { ArrowRight, BookOpen, Check, Download, Gift, GraduationCap, Heart, Layers, LockKeyhole, Pencil, Plus, Printer, Puzzle, RefreshCw, Search, ShieldCheck, Sparkles, SpellCheck, Users, Volume2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { defaultOffer, GUARANTEE_DAYS, validCheckout, type Offer } from '@/features/sales/offer';
+import { defaultOffer, GUARANTEE_DAYS } from '@/features/sales/offer';
 import heroAsset from '@/assets/literacy-kit-mockup.jpg.asset.json';
 import contentAsset from '@/assets/literacy-kit-content.jpg.asset.json';
 import readingAsset from '@/assets/caderno-de-leitura.jpg.asset.json';
@@ -56,12 +55,6 @@ const faqs = [
   ['E se eu não gostar?', `Você terá ${GUARANTEE_DAYS} dias de garantia para solicitar o reembolso, conforme as condições da compra.`],
 ];
 const mainItems = ['Atividades de letras', 'Atividades de consciência fonológica', 'Atividades de sílabas', 'Formação de palavras', 'Atividades de leitura', 'Atividades de escrita', 'Atividades ilustradas', 'Exercícios de associação', 'Materiais organizados por etapa', 'Arquivos digitais prontos para imprimir'];
-const editorLabels: Record<Exclude<keyof Offer, 'bonus1' | 'bonus2' | 'bonus3' | 'bonus4'>, string> = {
-  activities: 'Quantidade real de atividades', pages: 'Quantidade real de páginas',
-  essentialAnchor: 'Preço anterior', essentialPrice: 'Preço do Kit Essencial',
-  essentialLink: 'Link de pagamento · Kit Essencial',
-};
-
 function Logo() {
   return <a href="#inicio" className="logo" aria-label="Kit Prático de Alfabetização, início"><span className="logo-icon"><BookOpen /></span><span><span className="logo-name">Kit de Alfabetização<span className="text-primary">.</span></span><span className="logo-caption">Aprender, uma etapa de cada vez.</span></span></a>;
 }
@@ -79,37 +72,9 @@ function TrustLine() {
 }
 
 function SalesPage() {
-  const [offer, setOffer] = useState<Offer>(defaultOffer);
-  const [editorAvailable, setEditorAvailable] = useState(false);
-  const [editorOpen, setEditorOpen] = useState(false);
-  const [pendingKit, setPendingKit] = useState<string | null>(null);
-  useEffect(() => {
-    setEditorAvailable(location.hostname === 'localhost' || location.hostname.startsWith('id-preview--'));
-    try {
-      const saved = sessionStorage.getItem('literacy-offer-draft');
-      if (saved) {
-        const parsed: unknown = JSON.parse(saved);
-        if (parsed && typeof parsed === 'object') {
-          const next = { ...defaultOffer };
-          for (const key of Object.keys(defaultOffer) as (keyof Offer)[]) {
-            const value = (parsed as Record<string, unknown>)[key];
-            if (typeof value === 'string' && (key !== 'essentialLink' || validCheckout(value))) next[key] = value;
-          }
-          setOffer(next);
-        }
-      }
-    } catch { /* Preview drafts are optional. */ }
-  }, []);
-  function updateOffer(key: keyof Offer, value: string) {
-    setOffer(current => {
-      const next = { ...current, [key]: value };
-      try { sessionStorage.setItem('literacy-offer-draft', JSON.stringify(next)); } catch { /* Keep the edit in memory. */ }
-      return next;
-    });
-  }
+  const offer = defaultOffer;
   function buy() {
-    if (validCheckout(offer.essentialLink)) { window.location.assign(offer.essentialLink); return; }
-    setPendingKit('Kit Essencial');
+    window.location.assign(offer.essentialLink);
   }
   return <>
     <div id="inicio" className="top-note">Um próximo passo no aprendizado começa com a atividade certa.</div>
@@ -133,8 +98,5 @@ function SalesPage() {
     </main>
     <footer className="footer"><div className="wrap footer-inner"><Logo /><p>Material digital destinado ao apoio pedagógico e à alfabetização infantil.<br />As imagens dos materiais são ilustrativas.</p></div></footer>
     <div className="mobile-cta"><span>Kit de Alfabetização<small>Pronto para imprimir · 7 dias de garantia</small></span><CTA>Ver os kits</CTA></div>
-    {editorAvailable && <Button variant="outline" size="icon" className="editor-trigger" aria-label="Editar oferta" title="Editar oferta" onClick={() => setEditorOpen(true)}><Settings2 /></Button>}
-    <Dialog open={editorOpen} onOpenChange={setEditorOpen}><DialogContent className="editor-content"><DialogHeader><DialogTitle>Editar sua oferta</DialogTitle><DialogDescription>Preencha os preços, as quantidades e os links reais. Estas alterações são um rascunho nesta sessão; para publicar, peça para aplicar os valores à página.</DialogDescription></DialogHeader><div className="editor-fields">{(Object.keys(editorLabels) as (keyof typeof editorLabels)[]).map(key => <label key={key} className={key.endsWith('Link') ? 'editor-wide' : ''}>{editorLabels[key]}<input type={key.endsWith('Link') ? 'url' : 'text'} value={offer[key]} placeholder={key.endsWith('Link') ? 'https://seu-link-de-pagamento.com' : undefined} onChange={event => updateOffer(key, event.target.value)} /></label>)}</div><Button variant="sales" onClick={() => setEditorOpen(false)}>Ver alterações<CheckCheck /></Button></DialogContent></Dialog>
-    <Dialog open={pendingKit !== null} onOpenChange={open => { if (!open) setPendingKit(null); }}><DialogContent><DialogHeader><DialogTitle>{pendingKit}</DialogTitle><DialogDescription>O link de pagamento deste kit ainda não foi disponibilizado. A compra ficará disponível quando a oferta for finalizada.</DialogDescription></DialogHeader>{editorAvailable && <Button variant="sales" onClick={() => { setPendingKit(null); setEditorOpen(true); }}>Configurar oferta<Settings2 /></Button>}</DialogContent></Dialog>
   </>;
 }
