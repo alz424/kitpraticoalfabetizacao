@@ -110,7 +110,6 @@ function SalesPage() {
   }
   return <>
     <div id="inicio" className="top-note">Um próximo passo no aprendizado começa com a atividade certa.</div>
-    <header className="site-header"><div className="wrap header-inner"><Logo /><nav className="header-nav" aria-label="Navegação da página"><a href="#conteudo">O material</a><a href="#bonus">Bônus</a><a href="#duvidas">Dúvidas</a><CTA className="header-cta">Escolher meu kit</CTA></nav></div></header>
     <main>
       <section className="hero">
         <div className="wrap hero-inner"><div className="eyebrow"><Sparkles />Kit Prático de Alfabetização</div><h1>A criança está aprendendo a <span>ler e escrever?</span></h1><p className="hero-copy">Tenha atividades prontas e organizadas para trabalhar letras, sílabas, palavras, leitura e escrita — sem precisar procurar uma atividade diferente toda vez.</p><div className="hero-points"><span><Check />Material digital</span><span><Check />Pronto para imprimir</span><span><Check />Organizado por etapa</span></div><figure className="hero-product"><img className="hero-image" src={heroImage} alt="Ilustração do kit: atividades de letras e sílabas, lápis coloridos e blocos de alfabeto" width={1536} height={1024} fetchPriority="high" /><figcaption className="hero-caption">Imagem ilustrativa do material</figcaption></figure><CTA>Quero ver o material</CTA><TrustLine /></div>
