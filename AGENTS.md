@@ -11,6 +11,8 @@
 
 ## Project architecture
 - Keep the supplied long-form sales narrative on the index route; it is one continuous offer, not separate business pages.
-- Keep editable offer values in a typed frontend configuration; preview edits are browser-local drafts, not hosted administration.
+- Keep offer values in a typed frontend configuration without on-page editing or browser drafts, so confirmed terms stay consistent.
 - Keep checkout validation and guarantee duration in the offer module so rules are tested independently of presentation.
 - Keep carousel image sources and captions in a separate activity manifest; Embla handles dragging and snapping, while Radix Dialog provides accessible enlarged viewing.
+- Use native checkout anchors styled with the shared Button and a common offer destination, so navigation works without hydration or tracking scripts.
+- Do not display demonstration worksheets as product evidence; show the activity gallery only when real activity sources are available.
