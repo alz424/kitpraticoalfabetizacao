@@ -1,7 +1,8 @@
 # Roadmap
-- [ ] Improve first-screen offer clarity, useful content and FAQ without changing confirmed price or identity.
-- [ ] Check all checkout paths and existing Meta tracking; verify desktop/mobile interactions.
-- [ ] Report missing real activity pages, ad evidence and delivery/support details.
+- [x] Apply the conversion-engineering prompt: clearer first-screen offer, practical benefits and fewer repeated sections, preserving identity.
+- [x] Update the single Kit Essencial price to the newly confirmed R$ 19,90 and test the rule.
+- [x] Check all checkout paths and existing Meta tracking; verify desktop/mobile interactions (external payment and Meta receipt remain unverified).
+- [x] Report missing real activity pages, ad evidence and delivery/support details in conversion-review.md.
 - [x] Build the complete Portuguese sales page from the provided copy.
 - [x] Provide editable offer placeholders without invented prices or checkout links.
 - [x] Verify the page, mobile layout, CTAs and guarantee rules.

@@ -4,7 +4,7 @@ export const defaultOffer = {
   activities: '[QUANTIDADE DE ATIVIDADES]',
   pages: '[QUANTIDADE DE PÁGINAS]',
   essentialAnchor: '[ÂNCORA]',
-  essentialPrice: '19,99',
+  essentialPrice: '19,90',
   essentialLink: 'https://pay.cakto.com.br/37ifcan_1179687',
 };
 export type Offer = typeof defaultOffer;
