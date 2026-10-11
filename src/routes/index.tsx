@@ -16,10 +16,10 @@ const hasRealActivityPages = activityPages.some(page => !page.isPlaceholder);
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
-    { title: 'Kit Prático de Alfabetização | Letras, leitura e escrita' },
-    { name: 'description', content: 'Atividades de alfabetização organizadas por etapa: letras, sílabas, palavras, leitura e escrita. Material digital pronto para imprimir, com 7 dias de garantia.' },
-    { property: 'og:title', content: 'Kit Prático de Alfabetização — Aprender, uma etapa de cada vez' },
-    { property: 'og:description', content: 'Kit Essencial com atividades de letras, sílabas, leitura e escrita e quatro materiais complementares. Digital, pronto para imprimir, por R$ 19,99.' },
+     { title: `Kit Prático de Alfabetização | Kit Essencial por R$ ${defaultOffer.essentialPrice}` },
+     { name: 'description', content: `Atividades de letras, sílabas, leitura e escrita, com quatro complementos incluídos. Kit digital para imprimir por R$ ${defaultOffer.essentialPrice}, pagamento único e 7 dias de garantia.` },
+     { property: 'og:title', content: 'Kit Prático de Alfabetização — Escolha, imprima e pratique' },
+     { property: 'og:description', content: `Kit Essencial com atividades organizadas por habilidade e quatro complementos. Material digital por R$ ${defaultOffer.essentialPrice}, sem mensalidade.` },
     { property: 'og:type', content: 'website' },
     { name: 'twitter:card', content: 'summary_large_image' },
   ], scripts: [{ children: `!function(f,b,e,v,n,t,s)
@@ -36,12 +36,12 @@ fbq('track','PageView');` }] }),
 });
 
 const skills = [
-  { icon: SpellCheck, title: 'Letras', text: 'Atividades para reconhecimento e identificação das letras.' },
-  { icon: Volume2, title: 'Sons e consciência fonológica', text: 'Exercícios para trabalhar os sons presentes nas palavras.' },
-  { icon: Puzzle, title: 'Sílabas', text: 'Atividades para reconhecimento, associação e formação de sílabas.' },
-  { icon: Layers, title: 'Palavras', text: 'Exercícios para relacionar letras, sílabas, imagens e palavras.' },
-  { icon: BookOpen, title: 'Leitura', text: 'Atividades progressivas para praticar a leitura.' },
-  { icon: Pencil, title: 'Escrita', text: 'Exercícios para praticar a escrita conforme o estágio da criança.' },
+  { icon: SpellCheck, title: 'Letras', text: 'Para praticar o reconhecimento e a identificação das letras antes de formar palavras.' },
+  { icon: Volume2, title: 'Sons das palavras', text: 'Exercícios de consciência fonológica para observar e trabalhar os sons presentes nas palavras.' },
+  { icon: Puzzle, title: 'Sílabas', text: 'Para praticar o reconhecimento e a associação de sílabas na formação de palavras.' },
+  { icon: Layers, title: 'Palavras', text: 'Atividades de associação entre imagens e palavras, relacionando letras e sílabas.' },
+  { icon: BookOpen, title: 'Leitura', text: 'Para continuar a prática da leitura quando a criança já consegue trabalhar com palavras.' },
+  { icon: Pencil, title: 'Escrita', text: 'Exercícios para praticar a escrita, escolhidos conforme o que a criança precisa trabalhar.' },
 ];
 const audiences = [
   { icon: GraduationCap, title: 'Professoras', text: 'Para complementar as atividades da sala de aula sem precisar criar tudo do zero.' },
@@ -57,11 +57,11 @@ const bonuses = [
 ];
 const faqs = [
   ['O que vem no Kit Essencial?', 'Atividades de letras, consciência fonológica, sílabas, palavras, leitura e escrita, além do Caderno de leitura, Atividades extras de sílabas, Caderno de escrita e Material de revisão.'],
-  ['Para qual etapa de aprendizagem é indicado?', 'Para crianças em fase de alfabetização. Escolha entre letras, sílabas, palavras, leitura e escrita conforme o que a criança já consegue fazer e precisa praticar.'],
+  ['Serve para a etapa em que minha criança está?', 'O kit reúne atividades de diferentes habilidades da alfabetização. Escolha conforme o que a criança já consegue fazer: reconhecimento de letras, sílabas, palavras, leitura ou escrita. Um adulto acompanha a prática. O material é um apoio pedagógico, não um curso nem uma garantia de alfabetização.'],
   ['É só para professores?', 'Não. Pode apoiar professores, profissionais de reforço escolar e responsáveis que acompanham a criança em casa.'],
-  ['Como recebo o material?', 'O material é digital, não um produto físico. Após a confirmação do pagamento, o acesso é disponibilizado pelo sistema de entrega da compra.'],
-  ['Preciso imprimir todas as atividades?', 'Não. Escolha as páginas que pretende usar e imprima somente o necessário.'],
-  ['Como posso usar as atividades?', 'Selecione a habilidade que deseja trabalhar, escolha a atividade e apresente à criança. O material é um apoio à prática, não um curso nem uma promessa de alfabetização garantida.'],
+  ['Como recebo o material?', 'A compra é feita no checkout da Cakto. O material é digital: as capas nas imagens são ilustrativas e nenhum livro físico é enviado. Após a confirmação do pagamento, siga as instruções de acesso da compra. Confira no checkout as condições e o prazo de disponibilização antes de pagar.'],
+  ['Preciso imprimir todas as atividades?', 'Não. Selecione as páginas que pretende usar e imprima somente o necessário. A impressão não está incluída no preço do kit e fica por sua conta.'],
+  ['Por que comprar se encontro atividades gratuitas?', 'Atividades gratuitas também podem ser úteis. A proposta deste kit é reunir atividades de diferentes habilidades e quatro materiais complementares em um mesmo conjunto, para você escolher o que usar sem reunir arquivos de várias fontes. A compra faz sentido se essa organização for útil à sua rotina.'],
   ['O pagamento é único?', `Sim. O Kit Essencial custa R$ ${defaultOffer.essentialPrice}, com todos os materiais apresentados incluídos e sem mensalidade. As formas de pagamento são apresentadas no checkout.`],
   ['Como funciona a garantia?', `Você tem ${GUARANTEE_DAYS} dias para conhecer o material e solicitar reembolso se ele não atender à sua necessidade, conforme as condições da compra.`],
 ];
@@ -69,7 +69,7 @@ const mainItems = ['Atividades de letras', 'Atividades de consciência fonológi
 function Logo() {
   return <a href="#inicio" className="logo" aria-label="Kit Prático de Alfabetização, início"><span className="logo-icon"><BookOpen /></span><span><span className="logo-name">Kit de Alfabetização<span className="text-primary">.</span></span><span className="logo-caption">Aprender, uma etapa de cada vez.</span></span></a>;
 }
-function CTA({ children = 'Ir para o checkout', className = '', outline = false }: { children?: ReactNode; className?: string; outline?: boolean }) {
+function CTA({ children = 'Quero o Kit Essencial', className = '', outline = false }: { children?: ReactNode; className?: string; outline?: boolean }) {
   return <Button variant={outline ? 'salesOutline' : 'sales'} asChild className={className}><a href={defaultOffer.essentialLink}>{children}<ArrowRight /></a></Button>;
 }
 function Heading({ label, title, children }: { label: string; title: string; children?: ReactNode }) {
@@ -86,18 +86,18 @@ function SalesPage() {
   const offer = defaultOffer;
   return <>
     <noscript><img height="1" width="1" hidden src="https://www.facebook.com/tr?id=1504602178383511&ev=PageView&noscript=1" alt="" /></noscript>
-    <div id="inicio" className="top-note">Um próximo passo no aprendizado começa com a atividade certa.</div>
+    <div id="inicio" className="top-note">Material digital para imprimir · Kit Essencial + 4 complementos</div>
     <main>
       <section className="hero">
         <div className="wrap hero-inner">
           <div className="eyebrow"><Sparkles />Para famílias, professoras e reforço escolar</div>
-          <h1>Kit Prático de Alfabetização<span>Atividades para praticar letras, leitura e escrita</span></h1>
-          <p className="hero-copy">Escolha o que a criança precisa praticar, imprima e aplique. Atividades organizadas por etapa, com quatro materiais complementares incluídos.</p>
+          <h1>Kit Prático de Alfabetização<span>Escolha a habilidade. Imprima. Pratique com a criança.</span></h1>
+          <p className="hero-copy">Letras, sílabas, palavras, leitura e escrita em um kit digital organizado por habilidade, com quatro complementos incluídos.</p>
+          <figure className="hero-product"><img className="hero-image" src={heroImage} alt="Mockup ilustrativo do Kit Prático de Alfabetização e dos cadernos de leitura e escrita" width={1024} height={1024} fetchPriority="high" /><figcaption className="hero-caption">Imagem ilustrativa · Você recebe arquivos digitais</figcaption></figure>
           <div className="hero-points"><span><Check />Material digital</span><span><Check />Pronto para imprimir</span><span><Check />Sem mensalidade</span></div>
-          <p className="hero-offer">Kit Essencial completo por <strong>R$ {offer.essentialPrice}</strong></p>
-          <CTA>Ir para o checkout</CTA>
+          <p className="hero-offer">Atividades + 4 complementos por <strong>R$ {offer.essentialPrice}</strong></p>
+          <CTA>Quero o Kit Essencial</CTA>
           <TrustLine />
-          <figure className="hero-product"><img className="hero-image" src={heroImage} alt="Mockup ilustrativo do Kit Prático de Alfabetização e dos cadernos de leitura e escrita" width={1024} height={1024} fetchPriority="high" /><figcaption className="hero-caption">Imagem ilustrativa do material</figcaption></figure>
         </div>
       </section>
       <div className="benefit-strip"><div className="wrap strip-inner">{[{ icon: Printer, text: 'Pronto para imprimir' }, { icon: Layers, text: 'Organizado por etapa' }, { icon: Heart, text: 'Em casa ou na escola' }, { icon: ShieldCheck, text: '7 dias de garantia' }].map(({ icon: Icon, text }) => <div className="strip-item" key={text}><Icon />{text}</div>)}</div></div>
@@ -107,12 +107,11 @@ function SalesPage() {
       <section className="section section-tint"><div className="wrap"><Heading label="Respeite o ritmo da criança" title="E se a criança ainda estiver com dificuldade?">Você não precisa começar escolhendo uma atividade aleatória. Primeiro, observe o que ela já consegue fazer. Depois, escolha atividades que trabalhem exatamente aquela habilidade.</Heading><div className="steps-grid">{[{ title: 'Identifique', text: 'Veja o que a criança já domina.' }, { title: 'Escolha', text: 'Selecione atividades relacionadas àquela etapa.' }, { title: 'Aplique', text: 'Imprima e apresente a atividade.' }, { title: 'Avance', text: 'Conforme a criança evolui, passe para novos desafios.' }].map(({ title, text }, i) => <div className="step" key={title}><span className="step-num">{i + 1}</span><h3>{title}</h3><p>{text}</p></div>)}</div><p className="section-footnote"><strong>Você não precisa usar todas as atividades de uma vez.</strong></p></div></section>
       <section className="section"><div className="wrap product-layout"><img className="product-photo" src={contentAsset.url} alt="Kit Prático de Alfabetização com atividades de letras, sílabas, palavras, leitura e escrita" width={1024} height={1024} loading="lazy" /><div className="product-content"><div className="eyebrow">O que você recebe</div><h2>Kit Prático de Alfabetização</h2><span className="small-label">MATERIAL PRINCIPAL</span><CheckList items={mainItems} /></div></div></section>
       <section className="section section-muted" id="bonus"><div className="wrap"><Heading label="Mais possibilidades para praticar" title="Quatro complementos no mesmo kit" >Materiais complementares incluídos no Kit Essencial.</Heading><div className="bonus-grid">{bonuses.map(({ title, text, key }, i) => <article className="bonus" key={title}><img className="bonus-photo" src={key === 'bonus1' ? readingAsset.url : key === 'bonus2' ? syllablesAsset.url : key === 'bonus3' ? writingAsset.url : revisionAsset.url} alt={title} width={1024} height={1024} loading="lazy" /><div className="bonus-content"><span className="bonus-label">BÔNUS #{i + 1}</span><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section>
-      <section className="section"><div className="wrap"><Heading label="Menos procura. Mais tempo para ensinar." title="Por que ter tudo junto?">O valor está na organização: atividades de diferentes habilidades e materiais complementares em um só conjunto. Você escolhe as páginas necessárias e pode consultar os arquivos novamente, sem reunir atividades de vários lugares.</Heading><div className="convenience-grid">{[{ icon: Printer, title: 'Pronto para imprimir', text: 'Baixe e escolha as páginas que deseja utilizar.' }, { icon: Layers, title: 'Organizado', text: 'Encontre atividades relacionadas ao que você quer trabalhar.' }, { icon: Heart, title: 'Flexível', text: 'Use em casa, na escola ou no reforço.' }, { icon: RefreshCw, title: 'Reutilizável', text: 'Tenha acesso ao material para consultar e imprimir novamente.' }].map(({ icon: Icon, title, text }) => <article key={title}><Icon /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-      <section className="section section-muted" id="kits"><div className="wrap"><Heading label="Tudo incluído" title="Kit Essencial: uma compra, todos os materiais">Um único kit com todo o material: as atividades principais e todos os bônus.</Heading><div className="pricing-grid pricing-grid-single"><article className="price-card price-card-complete"><div className="complete-label"><Gift />MATERIAL PRINCIPAL + TODOS OS BÔNUS</div><h3>Kit Essencial</h3><p className="price-subtitle">TUDO EM UM SÓ KIT</p><CheckList items={['Atividades de letras, sílabas e palavras', 'Atividades de leitura e escrita', 'Caderno de leitura', 'Atividades extras de sílabas', 'Caderno de escrita', 'Material de revisão', 'Arquivos digitais prontos para imprimir']} /><div className="price-value"><span>R$</span>{offer.essentialPrice}</div><p className="price-payment">Preço total · Pagamento único · Material digital</p><CTA>Comprar o Kit Essencial</CTA><p className="price-card-note">{GUARANTEE_DAYS} dias para conhecer o material</p></article></div><div className="center-cta"><TrustLine /></div></div></section>
-      <section className="section"><div className="wrap guarantee"><div className="guarantee-seal"><ShieldCheck /><strong>{GUARANTEE_DAYS}</strong><span>DIAS DE GARANTIA</span></div><div><div className="eyebrow">Compra sem ficar preso à decisão</div><h2>Você tem {GUARANTEE_DAYS} dias para conhecer</h2><p>Você poderá acessar e conhecer o material dentro do período de garantia. Se perceber que ele não é adequado para sua necessidade, poderá solicitar o reembolso dentro do prazo estabelecido.</p><CTA outline>Ir para o checkout</CTA></div></div></section>
+      <section className="section section-muted" id="kits"><div className="wrap"><Heading label="Uma única oferta" title="Kit Essencial: atividades + quatro complementos">Todos os materiais abaixo estão incluídos no mesmo preço, sem mensalidade.</Heading><div className="pricing-grid pricing-grid-single"><article className="price-card price-card-complete"><div className="complete-label"><Gift />MATERIAL PRINCIPAL + TODOS OS BÔNUS</div><h3>Kit Essencial</h3><p className="price-subtitle">ESCOLHA AS PÁGINAS QUE PRECISA USAR</p><CheckList items={['Atividades de letras, sons, sílabas e palavras', 'Atividades de leitura e escrita', 'Caderno de leitura', 'Atividades extras de sílabas', 'Caderno de escrita', 'Material de revisão', 'Arquivos digitais prontos para imprimir']} /><div className="price-value"><span>R$</span>{offer.essentialPrice}</div><p className="price-payment">Preço total · Pagamento único · Sem mensalidade</p><CTA>Comprar o Kit Essencial</CTA><p className="price-card-note">Você será direcionado ao checkout da Cakto.<br />Confira as formas de pagamento e as instruções de acesso antes de concluir.</p><p className="price-card-note">Material digital · Impressão por sua conta<br />{GUARANTEE_DAYS} dias de garantia</p></article></div><div className="center-cta"><TrustLine /></div></div></section>
+      <section className="section"><div className="wrap guarantee"><div className="guarantee-seal"><ShieldCheck /><strong>{GUARANTEE_DAYS}</strong><span>DIAS DE GARANTIA</span></div><div><div className="eyebrow">Tempo para avaliar o material</div><h2>Você tem {GUARANTEE_DAYS} dias para conhecer</h2><p>Acesse o material e avalie se as atividades atendem à sua necessidade. Se não atenderem, você pode solicitar reembolso dentro do prazo de {GUARANTEE_DAYS} dias, seguindo as condições e orientações da compra.</p><CTA outline>Quero o Kit Essencial</CTA></div></div></section>
       <section className="section section-muted" id="duvidas"><div className="wrap"><Heading label="Tudo claro antes de escolher" title="Perguntas frequentes" /><div className="faq-list">{faqs.map(([question, answer]) => <details className="faq-item" key={question}><summary>{question}<Plus /></summary><p>{answer}</p></details>)}</div></div></section>
-      <section className="final-offer"><div className="wrap"><div className="eyebrow"><Sparkles />Um material. Diferentes etapas.</div><h2>Escolha as atividades para o próximo momento de prática</h2><p>Kit Essencial por R$ {offer.essentialPrice}: atividades principais e quatro complementos, organizados para usar em casa, na escola ou no reforço.</p><span className="small-label">ACESSO DIGITAL · MATERIAL PRONTO PARA IMPRIMIR</span><CTA>Comprar o Kit Essencial</CTA><TrustLine /></div></section>
+      <section className="final-offer"><div className="wrap"><div className="eyebrow"><Sparkles />Para sua próxima atividade</div><h2>Kit Essencial por R$ {offer.essentialPrice}</h2><p>Reúna atividades de letras, sílabas, palavras, leitura e escrita e quatro complementos. Escolha as páginas conforme o momento da criança e acompanhe a prática.</p><span className="small-label">MATERIAL DIGITAL · PAGAMENTO ÚNICO · SEM MENSALIDADE</span><CTA>Comprar o Kit Essencial</CTA><TrustLine /></div></section>
     </main>
     <footer className="footer"><div className="wrap footer-inner"><Logo /><p>Material digital destinado ao apoio pedagógico e à alfabetização infantil.<br />As imagens dos materiais são ilustrativas.</p></div></footer>
     <div className="mobile-cta"><span>Kit Essencial · R$ {offer.essentialPrice}<small>Digital · {GUARANTEE_DAYS} dias de garantia</small></span><CTA>Comprar</CTA></div>
