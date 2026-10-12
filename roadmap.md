@@ -1,4 +1,6 @@
 # Roadmap
+- [ ] Apply the new validation brief with a focused audience, clearer need/solution narrative and R$ 10,90.
+- [ ] Verify price, checkout links, tracking and phone/desktop presentation; identify missing real worksheets and external checkout settings.
 - [x] Apply the conversion-engineering prompt: clearer first-screen offer, practical benefits and fewer repeated sections, preserving identity.
 - [x] Update the single Kit Essencial price to the newly confirmed R$ 19,90 and test the rule.
 - [x] Check all checkout paths and existing Meta tracking; verify desktop/mobile interactions (external payment and Meta receipt remain unverified).
