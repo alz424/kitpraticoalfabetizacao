@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { ArrowRight, BookOpen, Check, Download, GraduationCap, Heart, Layers, LockKeyhole, Pencil, Plus, Printer, Puzzle, RefreshCw, ShieldCheck, Sparkles, SpellCheck, Volume2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { defaultOffer, GUARANTEE_DAYS } from '@/features/sales/offer';
+import { trackCheckoutClick, type Pixel } from '@/features/sales/tracking';
 import heroAsset from '@/assets/literacy-kit-mockup.jpg.asset.json';
 import contentAsset from '@/assets/literacy-kit-content.jpg.asset.json';
 import readingAsset from '@/assets/caderno-de-leitura.jpg.asset.json';
@@ -65,10 +66,7 @@ function Logo() {
 }
 function CTA({ children = 'Quero o Kit Essencial', className = '', outline = false }: { children?: ReactNode; className?: string; outline?: boolean }) {
   return <Button variant={outline ? 'salesOutline' : 'sales'} asChild className={className}><a href={defaultOffer.essentialLink} onClick={() => {
-    try {
-      const pixel = (window as Window & { fbq?: (...args: unknown[]) => void }).fbq;
-      pixel?.('trackCustom', 'CheckoutClick', { content_name: 'Kit Prático de Alfabetização', currency: 'BRL', value: Number(defaultOffer.essentialPrice.replace(',', '.')) });
-    } catch { /* Tracking must never prevent checkout navigation. */ }
+    trackCheckoutClick((window as Window & { fbq?: Pixel }).fbq);
   }}>{children}<ArrowRight /></a></Button>;
 }
 function Heading({ label, title, children }: { label: string; title: string; children?: ReactNode }) {

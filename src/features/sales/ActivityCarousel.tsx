@@ -3,7 +3,9 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { ArrowLeft, ArrowRight, X } from 'lucide-react';
 import { Dialog, DialogClose, DialogDescription, DialogOverlay, DialogPortal, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { activityPages } from './activity-pages';
+import { activityPages as allActivityPages } from './activity-pages';
+
+const activityPages = allActivityPages.filter(page => !page.isPlaceholder);
 
 export function ActivityCarousel() {
   const [viewportRef, api] = useEmblaCarousel({ loop: true, align: 'center', startIndex: 0 });

@@ -15,4 +15,5 @@
 - Keep checkout validation and guarantee duration in the offer module so rules are tested independently of presentation.
 - Keep carousel image sources and captions in a separate activity manifest; Embla handles dragging and snapping, while Radix Dialog provides accessible enlarged viewing.
 - Use native checkout anchors styled with the shared Button and a common offer destination, so navigation works without hydration or tracking scripts.
+- Keep checkout-click analytics in a browser-safe, independently tested helper; only the payment provider may establish checkout sessions or approved purchases.
 - Do not display demonstration worksheets as product evidence; show the activity gallery only when real activity sources are available.
