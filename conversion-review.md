@@ -2,7 +2,7 @@
 
 ## Confirmed offer
 - Kit Prático de Alfabetização, sold as one Kit Essencial with the main activities and four complementary materials.
-- Client-confirmed total price: R$ 19,90. One-time payment, digital material, seven-day guarantee.
+- Current client-confirmed total price: R$ 10,90 (October 12 validation brief). One-time payment, digital material, seven-day guarantee.
 - All purchase links use the supplied Cakto destination. Existing Meta PageView integration is preserved.
 
 ## Evidence and limits
@@ -40,4 +40,13 @@ Compare with a prior period only under comparable ad traffic and acquisition con
 - Real activity pages and verified quantity, to demonstrate the actual worksheets.
 - Confirmed delivery instructions/timing and support contact.
 - Ads and funnel data for message matching and measured optimization.
-- Confirmation that the Cakto offer also charges R$ 19,90.
+- Confirmation that the Cakto offer also charges R$ 10,90.
+
+## October 12 validation revision
+- Parents and responsible adults are the primary copy audience; teachers are mentioned secondarily. This is a testable positioning hypothesis, not a proven higher-converting audience.
+- Replaced generic sequencing with concrete home-practice needs and a clearer adult-guided workflow.
+- Preserved all existing included materials, without adding new bonuses or separate products; removed bonus framing in the offer.
+- Updated all rendered prices through the shared configuration. Existing covers remain illustrative; no real worksheets were supplied, so the gallery stays hidden and filters out demonstration pages.
+- Added independently tested CheckoutClick analytics, distinct from PageView, InitiateCheckout and Purchase. The page does not fabricate checkout sessions or approved purchases; provider-side tracking still requires verification.
+- Seven tests passed. Desktop and phone-width browser checks confirmed the price, six destination links, FAQ, no overflow or runtime errors, and one click event carrying BRL 10.90. Navigation was tested with the external destination intercepted; Cakto pricing, payment completion and Meta event receipt were not verified.
+- Prior review sections describe the earlier revision, not measured conversion results. Real activity sheets, delivery/support details, ad data and the original commercial reference remain needed for a complete evidence-based review.

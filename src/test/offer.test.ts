@@ -6,7 +6,7 @@ describe('Sales offer', () => {
     expect(GUARANTEE_DAYS).toBe(7);
   });
   it('uses the single kit price specified by the client', () => {
-    expect(defaultOffer.essentialPrice).toBe('19,90');
+    expect(defaultOffer.essentialPrice).toBe('10,90');
     expect('completePrice' in defaultOffer).toBe(false);
   });
   it('sends every buy button to the client Cakto checkout', () => {
