@@ -644,9 +644,13 @@ body { background:var(--background); }
   .price-card .check-list { margin-bottom:24px; }
   .price-payment,.price-card-note { font-size:13px; line-height:1.55; }
   .guarantee-seal { width:145px; height:145px; }
-  .faq-item summary { padding:20px 48px 20px 18px; font-size:17px; line-height:1.4; }
-  .faq-item summary svg { right:17px; }
-  .faq-item p { padding:0 18px; font-size:16px; }
+    #duvidas .section-heading { margin-bottom:30px; }
+  #duvidas .section-heading h2 { font-size:32px; }
+  .faq-list { max-width:100%; }
+  .faq-item { margin-bottom:12px; border-radius:14px; }
+  .faq-item summary { min-height:68px; padding:18px 48px 18px 18px; font-size:16px; line-height:1.4; }
+  .faq-item summary svg { right:16px; width:18px; height:18px; }
+  .faq-item p { padding:0 18px 20px; font-size:15px; }
   .final-offer { padding:66px 0; }
   .final-offer h2 { font-size:36px; line-height:1.08; }
   .final-offer p { font-size:17px; line-height:1.6; }
