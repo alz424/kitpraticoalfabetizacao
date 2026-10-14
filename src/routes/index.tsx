@@ -90,7 +90,7 @@ function SalesPage() {
           <div className="eyebrow"><Sparkles />Para pais e responsáveis</div>
 <h1>Kit Prático de Alfabetização<span>Ajude seu filho a aprender a ler e escrever com atividades prontas para imprimir!</span></h1>
           <p className="hero-copy">Um kit com atividades organizadas por etapa, para praticar letras, sílabas, leitura e escrita em casa.</p>
-          <figure className="hero-product"><img className="hero-image" src={heroImage} alt="Mockup ilustrativo do Kit Prático de Alfabetização e dos cadernos de leitura e escrita" width={1024} height={1024} fetchPriority="high" /><figcaption className="hero-caption">Imagem ilustrativa · Você recebe arquivos digitais</figcaption></figure>
+          <figure className="hero-product"><img className="hero-image" src={heroImage} alt="Mockup ilustrativo do Kit Prático de Alfabetização e dos cadernos de leitura e escrita" width={1024} height={1024} fetchPriority="high" /></figure>
           <div className="hero-points"><span><Check />Material digital</span><span><Check />Pronto para imprimir</span><span><Check />Sem mensalidade</span></div>
           <p className="hero-offer">Kit digital por <strong>R$ {offer.essentialPrice}</strong></p>
           <CTA>Quero o Kit Essencial</CTA>
