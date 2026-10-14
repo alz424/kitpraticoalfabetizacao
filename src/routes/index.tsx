@@ -44,6 +44,16 @@ const skills = [
   { icon: BookOpen, title: 'Leitura', text: 'Para continuar a prática da leitura quando a criança já consegue trabalhar com palavras.' },
   { icon: Pencil, title: 'Escrita', text: 'Exercícios para praticar a escrita, escolhidos conforme o que a criança precisa trabalhar.' },
 ];
+const benefits = [
+  { icon: Layers, title: 'Atividades por habilidade', text: 'Encontre propostas para trabalhar letras, sílabas, palavras, leitura e escrita.' },
+  { icon: GraduationCap, title: 'Apoio para educadores', text: 'Use como recurso complementar no planejamento e nas atividades pedagógicas.' },
+  { icon: Printer, title: 'Pronto para imprimir', text: 'Escolha as páginas que fazem sentido para a atividade e imprima quando precisar.' },
+  { icon: Heart, title: 'Acompanhe cada etapa', text: 'Selecione atividades de acordo com o que a criança está praticando.' },
+  { icon: BookOpen, title: 'Opções de leitura', text: 'Inclui atividades e um caderno complementar para praticar a leitura.' },
+  { icon: Pencil, title: 'Prática da escrita', text: 'Conte com exercícios de escrita entre as opções disponíveis no kit.' },
+  { icon: Puzzle, title: 'Mais prática com sílabas', text: 'Use atividades extras para trabalhar o reconhecimento e a formação de sílabas.' },
+  { icon: Check, title: 'Materiais reunidos', text: 'Kit principal e quatro complementos incluídos em uma única compra.' },
+];
 const bonuses = [
   { title: 'Caderno de leitura', text: 'Um material complementar para continuar praticando leitura depois das atividades principais.', icon: BookOpen, key: 'bonus1' as const },
   { title: 'Atividades extras de sílabas', text: 'Mais exercícios para reforçar a formação e o reconhecimento de sílabas.', icon: Puzzle, key: 'bonus2' as const },
@@ -53,7 +63,7 @@ const bonuses = [
 const faqs = [
   ['O que está incluído no Kit Essencial?', 'Atividades de reconhecimento de letras, maiúsculas e minúsculas, associação entre letras e imagens, sílabas, leitura e escrita, além do Caderno de leitura, Atividades extras de sílabas, Caderno de escrita e Material de revisão.'],
   ['O kit é adequado à etapa de aprendizagem da criança?', 'O kit reúne atividades de diferentes habilidades da alfabetização. Escolha conforme o que a criança já consegue fazer: reconhecimento de letras, sílabas, palavras, leitura ou escrita. Um adulto acompanha a prática. O material é um apoio pedagógico, não um curso nem uma garantia de alfabetização.'],
-  ['É preciso ser professor para usar o material?', 'Não. Pais e responsáveis podem selecionar uma atividade e acompanhar a prática da criança em casa. Professores também podem usar o kit como material de apoio pedagógico. Ele não substitui o acompanhamento escolar.'],
+  ['O Kit Essencial é indicado para educadores?', 'Sim. O Kit Essencial foi pensado para educadores como material de apoio pedagógico, com atividades que podem ser escolhidas conforme a habilidade trabalhada. Pais e responsáveis também podem usar o material em casa, acompanhando a prática da criança. Ele não substitui o acompanhamento escolar.'],
     ['Como recebo o material após a compra?', 'Após a confirmação do pagamento, o material digital é enviado para o e-mail informado na compra. Confira também as pastas de spam e lixo eletrônico. Nenhum material físico é enviado.'],
   ['Preciso imprimir todas as páginas do kit?', 'Não. Selecione as páginas que pretende usar e imprima somente o necessário. A impressão não está incluída no preço do kit e fica por sua conta.'],
   ['Qual é a diferença entre o kit e atividades gratuitas?', 'Atividades gratuitas também podem ser úteis. A proposta deste kit é reunir atividades de diferentes habilidades e quatro materiais complementares em um mesmo conjunto, para você escolher o que usar sem reunir arquivos de várias fontes. A compra faz sentido se essa organização for útil à sua rotina.'],
@@ -87,7 +97,7 @@ function SalesPage() {
     <main>
       <section className="hero">
         <div className="wrap hero-inner">
-          <div className="eyebrow"><Sparkles />Para pais e responsáveis</div>
+          <div className="eyebrow"><Sparkles />Para educadores e famílias</div>
 <h1>Kit Prático de Alfabetização<span>Ajude seu filho a aprender a ler e escrever com atividades prontas para imprimir!</span></h1>
           <p className="hero-copy">Um kit com atividades organizadas por etapa, para praticar letras, sílabas, leitura e escrita em casa.</p>
           <figure className="hero-product"><img className="hero-image" src={heroImage} alt="Mockup ilustrativo do Kit Prático de Alfabetização e dos cadernos de leitura e escrita" width={1024} height={1024} fetchPriority="high" /></figure>
@@ -98,6 +108,7 @@ function SalesPage() {
         </div>
       </section>
       <div className="benefit-strip"><div className="wrap strip-inner">{[{ icon: Printer, text: 'Pronto para imprimir' }, { icon: Layers, text: 'Organizado por etapa' }, { icon: Heart, text: 'Em casa ou na escola' }, { icon: ShieldCheck, text: '7 dias de garantia' }].map(({ icon: Icon, text }) => <div className="strip-item" key={text}><Icon />{text}</div>)}</div></div>
+            <section className="section section-muted" id="beneficios"><div className="wrap"><Heading label="Benefícios" title="Um apoio prático para educadores">O Kit Essencial reúne atividades e materiais complementares para apoiar o trabalho pedagógico. Escolha o que usar conforme a habilidade que está sendo trabalhada.</Heading><div className="benefits-grid">{benefits.map(({ icon: Icon, title, text }) => <article className="benefit-card" key={title}><span className="benefit-icon"><Icon /></span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
       <section className="section"><div className="wrap"><Heading label="Apoio à aprendizagem em casa" title="O que a criança precisa praticar agora?">Reconhecer uma letra, relacionar uma imagem à palavra ou tentar escrever: cada momento pede uma atividade diferente. O kit reúne opções para você escolher conforme o que a criança já consegue fazer.</Heading><div className="steps-grid">{[{ title: 'Reconhecer', text: 'Escolha atividades de letras quando a criança ainda está conhecendo o alfabeto.' }, { title: 'Relacionar', text: 'Trabalhe associações entre letras, imagens e palavras.' }, { title: 'Ler', text: 'Selecione sílabas e leitura conforme a prática que ela precisa.' }, { title: 'Escrever', text: 'Acompanhe os exercícios de escrita, respeitando o ritmo da criança.' }].map(({ title, text }, i) => <div className="step" key={title}><span className="step-num">{i + 1}</span><h3>{title}</h3><p>{text}</p></div>)}</div></div></section>
       <section className="section section-muted" id="conteudo"><div className="wrap"><Heading label="Cada habilidade, seu próximo passo" title="O que cada atividade ajuda a praticar">Do reconhecimento das letras à prática da leitura e da escrita: escolha a habilidade que faz sentido para a criança.</Heading>{hasRealActivityPages && <ActivityCarousel />}<div className="skills-grid">{skills.map(({ icon: Icon, title, text }, i) => <article className="skill" key={title}><span className="skill-number">0{i + 1}</span><span className="skill-icon"><Icon /></span><h3>{title}</h3><p>{text}</p></article>)}</div><div className="center-cta"><CTA>Comprar o Kit Essencial</CTA></div></div></section>
       <section className="section section-tint"><div className="wrap"><Heading label="Do arquivo à prática" title="Uma atividade por vez, com você por perto">O kit é material de apoio, não um curso. Um adulto seleciona as páginas, imprime e acompanha a realização. Não é preciso usar tudo de uma vez nem avançar antes de a criança estar pronta.</Heading><div className="steps-grid">{[{ title: 'Identifique', text: 'Veja o que a criança já domina.' }, { title: 'Escolha', text: 'Selecione atividades relacionadas àquela etapa.' }, { title: 'Aplique', text: 'Imprima e apresente a atividade.' }, { title: 'Avance', text: 'Conforme a criança evolui, passe para novos desafios.' }].map(({ title, text }, i) => <div className="step" key={title}><span className="step-num">{i + 1}</span><h3>{title}</h3><p>{text}</p></div>)}</div><p className="section-footnote"><GraduationCap className="inline size-4" /> Também pode apoiar professores nas atividades pedagógicas.</p></div></section>
