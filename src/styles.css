@@ -555,18 +555,23 @@ body { background:var(--background); }
   background:var(--card);
   box-shadow:var(--shadow-soft);
 }
-.faq-list { max-width:860px; }
+#duvidas { background:linear-gradient(180deg,var(--secondary),var(--blue-soft)); }
+#duvidas .section-heading { margin-bottom:42px; }
+#duvidas .section-heading h2 { font-size:42px; }
+.faq-list { max-width:900px; }
 .faq-item {
-  margin-bottom:12px;
-  border:1px solid var(--border);
-  border-radius:8px;
+  margin-bottom:16px;
+  border:1px solid color-mix(in oklch,var(--primary) 16%,var(--border));
+  border-radius:16px;
   background:var(--card);
-  box-shadow:0 7px 20px oklch(.42 .08 232 / .07);
+  box-shadow:0 10px 26px oklch(.42 .08 232 / .09);
   overflow:hidden;
+  transition:box-shadow .2s ease,transform .2s ease;
 }
-.faq-item summary { justify-content:flex-start; text-align:left; padding:22px 54px 22px 24px; font-size:17px; }
-.faq-item summary svg { right:22px; }
-.faq-item p { max-width:none; padding:0 24px; text-align:left; font-size:16px; }
+.faq-item:hover { transform:translateY(-1px); box-shadow:0 14px 30px oklch(.42 .08 232 / .13); }
+.faq-item summary { min-height:76px; justify-content:flex-start; text-align:left; padding:22px 60px 22px 26px; font-size:17px; line-height:1.45; }
+.faq-item summary svg { right:24px; width:20px; height:20px; }
+.faq-item p { max-width:none; margin:0; padding:0 26px 24px; text-align:left; font-size:16px; line-height:1.7; }
 .final-offer {
   background:var(--primary);
   padding:84px 0;
