@@ -44,6 +44,16 @@ const skills = [
   { icon: BookOpen, title: 'Leitura', text: 'Para continuar a prática da leitura quando a criança já consegue trabalhar com palavras.' },
   { icon: Pencil, title: 'Escrita', text: 'Exercícios para praticar a escrita, escolhidos conforme o que a criança precisa trabalhar.' },
 ];
+const benefits = [
+  { icon: Layers, title: 'Atividades por habilidade', text: 'Encontre propostas para trabalhar letras, sílabas, palavras, leitura e escrita.' },
+  { icon: GraduationCap, title: 'Apoio para educadores', text: 'Use como recurso complementar no planejamento e nas atividades pedagógicas.' },
+  { icon: Printer, title: 'Pronto para imprimir', text: 'Escolha as páginas que fazem sentido para a atividade e imprima quando precisar.' },
+  { icon: Heart, title: 'Acompanhe cada etapa', text: 'Selecione atividades de acordo com o que a criança está praticando.' },
+  { icon: BookOpen, title: 'Opções de leitura', text: 'Inclui atividades e um caderno complementar para praticar a leitura.' },
+  { icon: Pencil, title: 'Prática da escrita', text: 'Conte com exercícios de escrita entre as opções disponíveis no kit.' },
+  { icon: Puzzle, title: 'Mais prática com sílabas', text: 'Use atividades extras para trabalhar o reconhecimento e a formação de sílabas.' },
+  { icon: Check, title: 'Materiais reunidos', text: 'Kit principal e quatro complementos incluídos em uma única compra.' },
+];
 const bonuses = [
   { title: 'Caderno de leitura', text: 'Um material complementar para continuar praticando leitura depois das atividades principais.', icon: BookOpen, key: 'bonus1' as const },
   { title: 'Atividades extras de sílabas', text: 'Mais exercícios para reforçar a formação e o reconhecimento de sílabas.', icon: Puzzle, key: 'bonus2' as const },
