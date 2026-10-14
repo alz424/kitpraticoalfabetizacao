@@ -51,7 +51,7 @@ const bonuses = [
   { title: 'Material de revisão', text: 'Atividades para revisar conteúdos já trabalhados.', icon: RefreshCw, key: 'bonus4' as const },
 ];
 const faqs = [
-  ['O que vem no Kit Essencial?', 'Atividades de reconhecimento de letras, maiúsculas e minúsculas, associação entre letras e imagens, sílabas, leitura e escrita, além do Caderno de leitura, Atividades extras de sílabas, Caderno de escrita e Material de revisão.'],
+  ['O que está incluído no Kit Essencial?', 'Atividades de reconhecimento de letras, maiúsculas e minúsculas, associação entre letras e imagens, sílabas, leitura e escrita, além do Caderno de leitura, Atividades extras de sílabas, Caderno de escrita e Material de revisão.'],
   ['Serve para a etapa em que minha criança está?', 'O kit reúne atividades de diferentes habilidades da alfabetização. Escolha conforme o que a criança já consegue fazer: reconhecimento de letras, sílabas, palavras, leitura ou escrita. Um adulto acompanha a prática. O material é um apoio pedagógico, não um curso nem uma garantia de alfabetização.'],
   ['Preciso ser professor para usar?', 'Não. Pais e responsáveis podem selecionar uma atividade e acompanhar a prática da criança em casa. Professores também podem usar o kit como material de apoio pedagógico. Ele não substitui o acompanhamento escolar.'],
   ['Como recebo o material?', 'A compra é feita no checkout da Cakto. O material é digital: as capas nas imagens são ilustrativas e nenhum livro físico é enviado. Após a confirmação do pagamento, siga as instruções de acesso da compra. Confira no checkout as condições e o prazo de disponibilização antes de pagar.'],
