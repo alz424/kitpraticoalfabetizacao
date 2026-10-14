@@ -97,7 +97,7 @@ function SalesPage() {
     <main>
       <section className="hero">
         <div className="wrap hero-inner">
-          <div className="eyebrow"><Sparkles />Para pais e responsáveis</div>
+          <div className="eyebrow"><Sparkles />Para educadores e famílias</div>
 <h1>Kit Prático de Alfabetização<span>Ajude seu filho a aprender a ler e escrever com atividades prontas para imprimir!</span></h1>
           <p className="hero-copy">Um kit com atividades organizadas por etapa, para praticar letras, sílabas, leitura e escrita em casa.</p>
           <figure className="hero-product"><img className="hero-image" src={heroImage} alt="Mockup ilustrativo do Kit Prático de Alfabetização e dos cadernos de leitura e escrita" width={1024} height={1024} fetchPriority="high" /></figure>
