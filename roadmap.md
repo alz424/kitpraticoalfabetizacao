@@ -1,4 +1,6 @@
 # Roadmap
+- [ ] Remodel the complete sales page to match the supplied pale-cyan, dark-blue, white-card, blue-and-gold-button reference on mobile and desktop.
+- [ ] Verify the remodeled page visually, including all sections, checkout links and phone readability.
 - [x] Apply the new validation brief with a focused audience, clearer need/solution narrative and R$ 10,90.
 - [x] Verify price, checkout links, tracking and phone/desktop presentation; real worksheets, delivery/support details and external Cakto payment settings remain unavailable.
 - [x] Apply the conversion-engineering prompt: clearer first-screen offer, practical benefits and fewer repeated sections, preserving identity.
