@@ -71,9 +71,6 @@ const faqs = [
   ['Como funciona o prazo de garantia e o reembolso?', `Você tem ${GUARANTEE_DAYS} dias para conhecer o material e solicitar reembolso se ele não atender à sua necessidade, conforme as condições da compra.`],
 ];
 const mainItems = ['Atividades de letras', 'Letras maiúsculas e minúsculas', 'Atividades de sílabas', 'Formação de palavras', 'Atividades de leitura', 'Atividades de escrita', 'Atividades ilustradas', 'Exercícios de associação', 'Materiais organizados por etapa', 'Arquivos digitais prontos para imprimir'];
-function Logo() {
-  return <a href="#inicio" className="logo" aria-label="Kit Prático de Alfabetização, início"><span className="logo-icon"><BookOpen /></span><span><span className="logo-name">Kit de Alfabetização<span className="text-primary">.</span></span><span className="logo-caption">Aprender, uma etapa de cada vez.</span></span></a>;
-}
 function CTA({ children = 'Quero o Kit Essencial', className = '', outline = false }: { children?: ReactNode; className?: string; outline?: boolean }) {
   return <Button variant={outline ? 'salesOutline' : 'sales'} asChild className={className}><a href={defaultOffer.essentialLink} onClick={() => {
     trackCheckoutClick((window as Window & { fbq?: Pixel }).fbq);
