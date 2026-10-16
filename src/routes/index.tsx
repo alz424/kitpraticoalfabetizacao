@@ -1,15 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router';
 import type { ReactNode } from 'react';
-import { ArrowRight, BookOpen, Check, Download, GraduationCap, Heart, Layers, LockKeyhole, Pencil, Plus, Printer, Puzzle, RefreshCw, ShieldCheck, Sparkles, SpellCheck, Volume2 } from 'lucide-react';
+import { ArrowRight, BookOpen, Check, Download, GraduationCap, Heart, Layers, LockKeyhole, Pencil, Plus, Printer, Puzzle, ShieldCheck, Sparkles, SpellCheck, Volume2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { defaultOffer, GUARANTEE_DAYS } from '@/features/sales/offer';
 import { trackCheckoutClick, type Pixel } from '@/features/sales/tracking';
 import heroAsset from '@/assets/literacy-kit-mockup.jpg.asset.json';
 import contentAsset from '@/assets/literacy-kit-content.jpg.asset.json';
-import readingAsset from '@/assets/caderno-de-leitura.jpg.asset.json';
-import syllablesAsset from '@/assets/atividades-extras-silabas.jpg.asset.json';
-import writingAsset from '@/assets/caderno-de-escrita.jpg.asset.json';
-import revisionAsset from '@/assets/material-de-revisao.jpg.asset.json';
+import alphabetIllustration from '@/assets/learning-alphabet.jpg';
+import syllablesIllustration from '@/assets/learning-syllables.jpg';
+import readingIllustration from '@/assets/learning-reading.jpg';
+import writingIllustration from '@/assets/learning-writing.jpg';
 const heroImage = heroAsset.url;
 import { ActivityCarousel } from '@/features/sales/ActivityCarousel';
 import { activityPages } from '@/features/sales/activity-pages';
@@ -54,11 +54,11 @@ const benefits = [
   { icon: Puzzle, title: 'Mais prática com sílabas', text: 'Use atividades extras para trabalhar o reconhecimento e a formação de sílabas.' },
   { icon: Check, title: 'Materiais reunidos', text: 'Kit principal e quatro complementos incluídos em uma única compra.' },
 ];
-const bonuses = [
-  { title: 'Caderno de leitura', text: 'Um material complementar para continuar praticando leitura depois das atividades principais.', icon: BookOpen, key: 'bonus1' as const },
-  { title: 'Atividades extras de sílabas', text: 'Mais exercícios para reforçar a formação e o reconhecimento de sílabas.', icon: Puzzle, key: 'bonus2' as const },
-  { title: 'Caderno de escrita', text: 'Atividades adicionais para praticar a escrita.', icon: Pencil, key: 'bonus3' as const },
-  { title: 'Material de revisão', text: 'Atividades para revisar conteúdos já trabalhados.', icon: RefreshCw, key: 'bonus4' as const },
+const learningCards = [
+  { title: 'Letras do alfabeto', image: alphabetIllustration, alt: 'Ilustração de letras maiúsculas e minúsculas, uma criança e uma abelha', items: ['Reconhecer as letras.', 'Identificar letras maiúsculas e minúsculas.', 'Associar letras aos seus sons e imagens.'] },
+  { title: 'Vogais e sílabas', image: syllablesIllustration, alt: 'Ilustração das vogais, sílabas BA, BE e BI e uma banana com letras para completar', items: ['Reconhecer as vogais.', 'Completar palavras com letras que faltam.', 'Começar a identificar e formar sílabas simples.'] },
+  { title: 'Primeiras palavras e leitura', image: readingIllustration, alt: 'Ilustração de uma bola, uma casa e um gato associados às palavras correspondentes', items: ['Associar imagens às palavras correspondentes.', 'Reconhecer palavras simples.', 'Praticar a leitura de palavras familiares.'] },
+  { title: 'Escrita e coordenação motora', image: writingIllustration, alt: 'Ilustração de uma criança praticando o traçado das letras e linhas pontilhadas com um lápis', items: ['Treinar o traçado das letras.', 'Completar palavras com letras ausentes.', 'Praticar a escrita inicial por meio de atividades guiadas.'] },
 ];
 const faqs = [
   ['O que está incluído no Kit Essencial?', 'Atividades de reconhecimento de letras, maiúsculas e minúsculas, associação entre letras e imagens, sílabas, leitura e escrita, além do Caderno de leitura, Atividades extras de sílabas, Caderno de escrita e Material de revisão.'],
@@ -113,7 +113,22 @@ function SalesPage() {
       <section className="section section-muted" id="conteudo"><div className="wrap"><Heading label="Cada habilidade, seu próximo passo" title="O que cada atividade ajuda a praticar">Do reconhecimento das letras à prática da leitura e da escrita: escolha a habilidade que faz sentido para a criança.</Heading>{hasRealActivityPages && <ActivityCarousel />}<div className="skills-grid">{skills.map(({ icon: Icon, title, text }, i) => <article className="skill" key={title}><span className="skill-number">0{i + 1}</span><span className="skill-icon"><Icon /></span><h3>{title}</h3><p>{text}</p></article>)}</div><div className="center-cta"><CTA>Comprar o Kit Essencial</CTA></div></div></section>
       
       
-      <section className="section section-muted" id="bonus"><div className="wrap"><Heading label="Materiais que fazem parte da compra" title="Leitura, sílabas, escrita e revisão" >Estes materiais já fazem parte do Kit Essencial: não são uma compra separada.</Heading><div className="bonus-grid">{bonuses.map(({ title, text, key }, i) => <article className="bonus" key={title}><img className="bonus-photo" src={key === 'bonus1' ? readingAsset.url : key === 'bonus2' ? syllablesAsset.url : key === 'bonus3' ? writingAsset.url : revisionAsset.url} alt={title} width={1024} height={1024} loading="lazy" /><div className="bonus-content"><span className="bonus-label">INCLUÍDO NO KIT</span><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section>
+      <section className="section section-muted learning-section" id="bonus">
+        <div className="wrap">
+          <Heading label="Primeiras habilidades da alfabetização" title="O que a criança vai aprender com o kit?">Atividades práticas para desenvolver as primeiras habilidades de leitura e escrita, no ritmo da criança.</Heading>
+          <div className="learning-grid">
+            {learningCards.map(({ title, image, alt, items }, index) => <article className="learning-card" key={title}>
+              <img className="learning-image" src={image} alt={alt} width={1024} height={1024} loading="lazy" />
+              <div className="learning-content">
+                <span className="learning-number" aria-hidden="true">0{index + 1}</span>
+                <h3>{title}</h3>
+                <ul>{items.map(item => <li key={item}><Check aria-hidden="true" /><span>{item}</span></li>)}</ul>
+              </div>
+            </article>)}
+          </div>
+          <p className="learning-caption">Ilustrações das habilidades trabalhadas; não são reproduções das páginas do kit.</p>
+        </div>
+      </section>
 
       <section className="section section-muted" id="kits"><div className="wrap"><Heading label="Uma única oferta" title="Seu kit de apoio à alfabetização por R$ 10,90">Todos os materiais abaixo estão incluídos no mesmo preço, sem mensalidade.</Heading><div className="pricing-grid pricing-grid-single"><article className="price-card price-card-complete"><div className="complete-label"><BookOpen />UMA COMPRA · TODOS OS MATERIAIS INCLUÍDOS</div><h3>Kit Essencial</h3><p className="price-subtitle">ESCOLHA AS PÁGINAS QUE PRECISA USAR</p><CheckList items={['Letras, maiúsculas e minúsculas, sílabas e palavras', 'Atividades de leitura e escrita', 'Caderno de leitura', 'Atividades extras de sílabas', 'Caderno de escrita', 'Material de revisão', 'Arquivos digitais prontos para imprimir']} /><div className="price-value"><span>R$</span>{offer.essentialPrice}</div><p className="price-payment">Preço total · Pagamento único · Sem mensalidade</p><CTA>Comprar o Kit Essencial</CTA><p className="price-card-note">Você será direcionado ao checkout da Cakto.<br />Confira as formas de pagamento e as instruções de acesso antes de concluir.</p><p className="price-card-note">Material digital · Impressão por sua conta<br />{GUARANTEE_DAYS} dias de garantia</p></article></div><div className="center-cta"><TrustLine /></div></div></section>
       <section className="section"><div className="wrap guarantee"><div className="guarantee-seal"><ShieldCheck /><strong>{GUARANTEE_DAYS}</strong><span>DIAS DE GARANTIA</span></div><div><div className="eyebrow">Tempo para avaliar o material</div><h2>Você tem {GUARANTEE_DAYS} dias para conhecer</h2><p>Acesse o material e avalie se as atividades atendem à sua necessidade. Se não atenderem, você pode solicitar reembolso dentro do prazo de {GUARANTEE_DAYS} dias, seguindo as condições e orientações da compra.</p><CTA outline>Quero o Kit Essencial</CTA></div></div></section>

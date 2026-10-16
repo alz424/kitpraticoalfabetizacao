@@ -725,4 +725,20 @@ body { background:var(--background); }
   .product-content .small-label { margin-inline:auto; }
   .product-content .check-list li { font-size:15px; }
 }
+.learning-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+.learning-card { --learning-color:var(--primary); min-width:0; display:flex; flex-direction:column; overflow:hidden; border:1px solid var(--border); border-top:4px solid var(--learning-color); border-radius:8px; background:var(--card); box-shadow:var(--shadow-soft); }
+.learning-card:nth-child(2) { --learning-color:var(--gold); }
+.learning-card:nth-child(3) { --learning-color:var(--green); }
+.learning-card:nth-child(4) { --learning-color:var(--coral); }
+.learning-image { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; }
+.learning-content { flex:1; padding:24px 18px 26px; text-align:center; }
+.learning-number { display:grid; place-items:center; width:36px; height:36px; margin:0 auto 14px; border-radius:50%; background:color-mix(in oklch,var(--learning-color) 16%,var(--card)); color:var(--foreground); font-weight:900; font-size:14px; }
+.learning-content h3 { min-height:78px; margin:0 0 18px; font-size:23px; line-height:1.15; text-wrap:balance; }
+.learning-content ul { list-style:none; padding:0; margin:0; text-align:left; }
+.learning-content li { display:grid; grid-template-columns:18px minmax(0,1fr); gap:8px; margin-bottom:14px; font-size:16px; line-height:1.5; color:var(--muted-foreground); }
+.learning-content li:last-child { margin-bottom:0; }
+.learning-content li svg { width:18px; height:18px; margin-top:3px; color:var(--primary); }
+.learning-caption { margin:24px auto 0; text-align:center; font-size:13px; line-height:1.5; color:var(--muted-foreground); }
+@media(max-width:900px) { .learning-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; } .learning-content h3 { min-height:54px; } }
+@media(max-width:600px) { .learning-grid { grid-template-columns:minmax(0,1fr); gap:24px; } .learning-content { padding:24px; } .learning-content h3 { min-height:0; font-size:26px; margin-bottom:20px; } .learning-content li { font-size:18px; gap:10px; margin-bottom:16px; } .learning-caption { font-size:14px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; animation:none!important; } }

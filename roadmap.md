@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Replace the former materials section with four illustrated learning cards and verify phone/desktop readability while preserving the offer.
 - [x] Remodel the complete sales page to match the supplied pale-cyan, dark-blue, white-card, blue-and-gold-button reference on mobile and desktop.
 - [x] Verify the remodeled page visually, including all sections, checkout links and phone readability.
 - [x] Apply the new validation brief with a focused audience, clearer need/solution narrative and R$ 10,90.
