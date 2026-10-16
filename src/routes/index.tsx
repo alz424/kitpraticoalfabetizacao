@@ -71,9 +71,6 @@ const faqs = [
   ['Como funciona o prazo de garantia e o reembolso?', `Você tem ${GUARANTEE_DAYS} dias para conhecer o material e solicitar reembolso se ele não atender à sua necessidade, conforme as condições da compra.`],
 ];
 const mainItems = ['Atividades de letras', 'Letras maiúsculas e minúsculas', 'Atividades de sílabas', 'Formação de palavras', 'Atividades de leitura', 'Atividades de escrita', 'Atividades ilustradas', 'Exercícios de associação', 'Materiais organizados por etapa', 'Arquivos digitais prontos para imprimir'];
-function Logo() {
-  return <a href="#inicio" className="logo" aria-label="Kit Prático de Alfabetização, início"><span className="logo-icon"><BookOpen /></span><span><span className="logo-name">Kit de Alfabetização<span className="text-primary">.</span></span><span className="logo-caption">Aprender, uma etapa de cada vez.</span></span></a>;
-}
 function CTA({ children = 'Quero o Kit Essencial', className = '', outline = false }: { children?: ReactNode; className?: string; outline?: boolean }) {
   return <Button variant={outline ? 'salesOutline' : 'sales'} asChild className={className}><a href={defaultOffer.essentialLink} onClick={() => {
     trackCheckoutClick((window as Window & { fbq?: Pixel }).fbq);
@@ -126,7 +123,6 @@ function SalesPage() {
               </div>
             </article>)}
           </div>
-          <p className="learning-caption">Ilustrações das habilidades trabalhadas; não são reproduções das páginas do kit.</p>
         </div>
       </section>
 
@@ -135,7 +131,6 @@ function SalesPage() {
       <section className="section section-muted" id="duvidas"><div className="wrap"><Heading label="Tudo claro antes de escolher" title="Perguntas frequentes" /><div className="faq-list">{faqs.map(([question, answer]) => <details className="faq-item" key={question}><summary>{question}<Plus /></summary><p>{answer}</p></details>)}</div></div></section>
       <section className="final-offer"><div className="wrap"><div className="eyebrow"><Sparkles />Para sua próxima atividade</div><h2>Kit Essencial por R$ {offer.essentialPrice}</h2><p>Tenha atividades para acompanhar a criança em casa: escolha a habilidade que precisa praticar, imprima as páginas e participe desse momento de aprendizagem.</p><span className="small-label">MATERIAL DIGITAL · PAGAMENTO ÚNICO · SEM MENSALIDADE</span><CTA>Comprar o Kit Essencial</CTA><TrustLine /></div></section>
     </main>
-    <footer className="footer"><div className="wrap footer-inner"><Logo /><p>Material digital destinado ao apoio pedagógico e à alfabetização infantil.<br />As imagens dos materiais são ilustrativas.</p></div></footer>
     <div className="mobile-cta"><span>Kit Essencial · R$ {offer.essentialPrice}<small>Digital · {GUARANTEE_DAYS} dias de garantia</small></span><CTA>Comprar</CTA></div>
   </>;
 }

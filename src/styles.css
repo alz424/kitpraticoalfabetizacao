@@ -738,7 +738,5 @@ body { background:var(--background); }
 .learning-content li { display:grid; grid-template-columns:18px minmax(0,1fr); gap:8px; margin-bottom:14px; font-size:16px; line-height:1.5; color:var(--muted-foreground); }
 .learning-content li:last-child { margin-bottom:0; }
 .learning-content li svg { width:18px; height:18px; margin-top:3px; color:var(--primary); }
-.learning-caption { margin:24px auto 0; text-align:center; font-size:13px; line-height:1.5; color:var(--muted-foreground); }
 @media(max-width:900px) { .learning-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; } .learning-content h3 { min-height:54px; } }
-@media(max-width:600px) { .learning-grid { grid-template-columns:minmax(0,1fr); gap:24px; } .learning-content { padding:24px; } .learning-content h3 { min-height:0; font-size:26px; margin-bottom:20px; } .learning-content li { font-size:18px; gap:10px; margin-bottom:16px; } .learning-caption { font-size:14px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; animation:none!important; } }
