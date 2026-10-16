@@ -17,3 +17,4 @@
 - Use native checkout anchors styled with the shared Button and a common offer destination, so navigation works without hydration or tracking scripts.
 - Keep checkout-click analytics in a browser-safe, independently tested helper; only the payment provider may establish checkout sessions or approved purchases.
 - Do not display demonstration worksheets as product evidence; show the activity gallery only when real activity sources are available.
+- Keep conceptual learning illustrations separate from the real activity manifest and identify them as illustrations, so skill explanations are not mistaken for product-page evidence.
